@@ -4,7 +4,7 @@ import FormComponent from "../components/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import TaskList from "../components/TaskList";
+import List from "../components/List";
 import swal from "sweetalert/";
 
 const TaskContext = React.createContext();
@@ -96,7 +96,7 @@ const Tasks = () => {
                         />
                     </Col>
                     <Col lg={6} md={12} sm={12}>
-                        <TaskList tasks={tasks} />
+                        <List data={tasks} />
                     </Col>
                 </Row>
             </Card>

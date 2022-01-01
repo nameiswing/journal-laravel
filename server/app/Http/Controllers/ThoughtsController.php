@@ -14,7 +14,12 @@ class ThoughtsController extends Controller
      */
     public function index()
     {
-        //
+        $thoughts = Thoughts::all();
+        return response()->json([
+            'status' => 200,
+            "message" => "Data successfully retrieved.",
+            "thoughts" => $thoughts,
+        ]);
     }
 
     /**
@@ -25,7 +30,15 @@ class ThoughtsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $thought = new Thoughts();
+        $thought->name = $request->input('name');
+        $thought->description = $request->input('description');
+        $thought->due_date = $request->input('due_date');
+        $thought->save();
+        return response()->json([
+            'status' => 200,
+            "message" => "Thought added successfully."
+        ]);
     }
 
     /**
@@ -59,6 +72,8 @@ class ThoughtsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $thought = Thoughts::find($id);
+        $thought->delete();
+        return response()->json(['status'=>200, 'message'=>'Item removed.']);
     }
 }

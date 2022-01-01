@@ -40,7 +40,7 @@ const FormComponent = ({ names, state, changeHandler, submitHandler }) => {
                     <Form.Control
                         as="textarea"
                         name={names[1]}
-                        defaultValue={state.description}
+                        value={state.description}
                         onChange={changeHandler}
                         rows={5}
                         required
